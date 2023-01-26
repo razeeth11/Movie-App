@@ -1,0 +1,81 @@
+body{
+  font-family: poppins;
+}
+
+.App{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px ,1fr));
+  justify-items: center;
+  gap: 20px;
+}
+
+.container img{
+  width:100%;
+  object-fit: cover;
+  height: 500px;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.likeButton{
+  margin-bottom: 10px;
+}
+
+.movie-sum{
+  margin-top: 0;
+}
+
+.nut{
+  margin-left: 10px;
+}
+
+.buts:hover{
+   position: relative;
+   left: 10px;
+   display: inline;
+   bottom: 2px;
+   margin: 0;
+   padding: 0 8px;
+   font-size: 12px;
+   font-weight: 700;
+   border-radius: 2px;
+   color: rgb(66, 66, 66);
+   background-color: rgb(37, 184, 0);
+}
+
+.buts{
+  position: relative;
+  left: 10px;
+  display: inline;
+  bottom: 2px;
+  margin: 0;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 2px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(29, 143, 0);
+}
+
+.content{
+  padding: 0 20px;
+}
+
+.container{
+    border: 1px solid grey;
+    width: 300px;
+}
+
+button .png{
+   width: 15px;
+   height: 15px;
+}
+
+
+span{
+  font-size: 14px;
+}
