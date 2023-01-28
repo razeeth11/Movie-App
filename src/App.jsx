@@ -17,7 +17,7 @@ import { TicTacToe } from "./TicTacToe";
 export default function App(){
   return(
     <div>
-      {/* <MovieCreate/> */}
+      <MovieCreate/>
       <TicTacToe/>
     </div>
   )
