@@ -1,0 +1,87 @@
+.Box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  font-weight: 550;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.Box:hover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  font-weight: 550;
+  border: 1px solid black;
+  background-color: rgb(223, 223, 223);
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.boxes{
+  margin: auto;
+  width: min-content;
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   justify-items:center;
+}
+
+.Tic-container{
+  text-align: center;
+  font-size: 20px;
+}
+
+.extra{
+  margin-top: 20px !important;
+}
+
+h1{
+  display: inline-block;
+}
+
+@media screen and (max-width:310px) {
+   
+  .Box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 450;
+    border: 1px solid black;
+    font-size: 60px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+  
+  .Box:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 450;
+    border: 1px solid black;
+    font-size: 60px;
+    background-color: rgb(223, 223, 223);
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+  
+  .boxes{
+    margin: auto;
+    width: min-content;
+     display: grid;
+     grid-template-columns: repeat(3,1fr);
+     justify-items:center;
+  }
+   
+  .Tic-container{
+    text-align: center;
+    font-size: 10px;
+  }
+
+}
