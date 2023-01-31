@@ -1,0 +1,26 @@
+.color-box{
+  width: 100% !important;
+  padding: 5px;
+}
+
+.clr{
+  margin-top: 20px !important;
+}
+
+.main-box{
+  width: 250px !important;
+  margin: auto;
+}
+
+.boxxx{
+  display: flex;
+  height: 20px;
+  justify-content: space-between;
+  
+}
+
+Button{
+  position: relative;
+  left: 10px;
+  padding: 5px !important;
+}

@@ -52,7 +52,7 @@ body{
 
 .container{
     border: 1px solid grey;
-    width: 300px;
+    width: 350px;
     position: relative;
 }
 
@@ -69,8 +69,15 @@ span{
 .contain{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 200px;
   margin: 10px auto;
+}
+
+.details-icon{
+  position: relative;
+  left: 30px !important;
+  top: 3px !important;
 }
 
 .add-Button{
@@ -101,3 +108,11 @@ Button{
 }
 
 
+.not-found{
+  text-align: center;
+  margin: auto;
+}
+
+.details-icon{
+  cursor: pointer !important;
+}
