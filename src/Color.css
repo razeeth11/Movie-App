@@ -10,6 +10,7 @@
 .main-box{
   width: 250px !important;
   margin: auto;
+  text-align: center;
 }
 
 .boxxx{
@@ -19,8 +20,3 @@
   
 }
 
-Button{
-  position: relative;
-  left: 10px;
-  padding: 5px !important;
-}

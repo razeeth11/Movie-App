@@ -1,0 +1,32 @@
+.movie-detailss{
+  margin: 10px auto !important;
+}
+
+.movie-detail{
+  padding: 10px;
+}
+
+.main{
+  margin: 0 auto !important;
+}
+
+.home{
+  margin: 0 auto !important;
+  text-align: center;
+}
+
+.nav-bar Button  {
+  border: none !important;
+  }
+
+  .Nav{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.447) !important ;
+  }
+
+  @media screen and (max-width:440px){
+    
+    .contain{
+      width: 90%;
+    }
+
+  }

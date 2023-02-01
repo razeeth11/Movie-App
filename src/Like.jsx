@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import Badge from '@mui/material/Badge';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-
+import Paper from '@mui/material/Paper';
 
 export function Like() {
   const [like, setLike] = useState(0);
@@ -13,7 +13,7 @@ export function Like() {
   return (
     <div className="likeButton">
 
-          <IconButton onClick={() => setLike(like + 1)} >      
+          <IconButton onClick={() => setLike(like + 1)} >       
           <Badge badgeContent={like} color="primary" >
           <ThumbUpIcon color="primary"/>
           </Badge>

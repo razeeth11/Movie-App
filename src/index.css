@@ -1,18 +1,33 @@
 body{
   font-family: poppins;
+  margin: 0;
 }
 
-.App{
+.movie-box{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px ,1fr));
   justify-items: center;
-  gap: 20px;
+  gap: 40px;
+  padding-top: 50px;
 }
 
 .container img{
   width:100%;
   object-fit: cover;
   height: 500px;
+}
+
+.nav-flex{
+  position: relative;
+  width: 100%;
+  display: flex !important;
+  justify-content: left !important;
+}
+
+.absolute{
+  position: absolute;
+  right: 0px;
+  /* margin-left: auto; */
 }
 
 .flex{
@@ -51,7 +66,6 @@ body{
 }
 
 .container{
-    border: 1px solid grey;
     width: 350px;
     position: relative;
 }
@@ -89,6 +103,7 @@ span{
 .contain{
   text-align: center;
   width: 400px;
+  margin-top: 0%  ;
 }
 
 .contain Button{

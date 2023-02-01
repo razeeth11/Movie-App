@@ -4,9 +4,14 @@ import React from 'react'
 import Confetti from 'react-confetti'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export function TicTacToe() {
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
   const [values,setValues] = useState(Array(9).fill(""))
   const { width, height } = useState(window.innerWidth,window.innerHeight)
 
@@ -47,8 +52,13 @@ const winner = (values)=>{
  const p = {
   color: final === "X" ? "red" : "green",
  }
+ const radius = {
+  borderRadius : "0px",
+  minHeight : window.innerHeight
+}
   return (
-    <div className="Tic-container">
+    <ThemeProvider theme={darkTheme}>
+    <div style={radius} className="Tic-container">
         { final ? <Confetti
       width={width}
       height={height}
@@ -61,17 +71,18 @@ const winner = (values)=>{
 
       { final ? <p>The Winner is : <span style={p}>{final}</span></p> : "" } 
       
-      { final ? <Button className="extra" variant="outlined" onClick={
-        ()=> {}
-      }>Scoreboard</Button> : "" }
-      
-      {<Button className="extra" variant="contained" onClick={
+      {final ? <Button className="extra" variant="contained" onClick={
+        ()=> setValues(Array(9).fill(""),
+        setXTurn(true)
+        )
+      }>Play Again</Button> : <Button className="extra" variant="contained" onClick={
         ()=> setValues(Array(9).fill(""),
         setXTurn(true)
         )
       }>Try Again</Button>}
 
     </div>
+    </ThemeProvider>
   );
 }
 
