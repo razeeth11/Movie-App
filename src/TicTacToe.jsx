@@ -3,15 +3,19 @@ import { useState } from "react";
 import React from 'react'
 import Confetti from 'react-confetti'
 import Stack from '@mui/material/Stack';
+import Paper from "@mui/material/Paper";
 import Button from '@mui/material/Button';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export function TicTacToe() {
+  const [mode, setMode] = useState("dark");
   const darkTheme = createTheme({
     palette: {
-      mode: 'dark',
+      mode: mode,
     },
   });
+
+
   const [values,setValues] = useState(Array(9).fill(""))
   const { width, height } = useState(window.innerWidth,window.innerHeight)
 
@@ -54,16 +58,17 @@ const winner = (values)=>{
  }
  const radius = {
   borderRadius : "0px",
-  minHeight : window.innerHeight
+  minHeight : "100vh"
 }
   return (
-    <ThemeProvider theme={darkTheme}>
+    <Paper sx={radius} elevation={10}>
+        <ThemeProvider theme={darkTheme}>
     <div style={radius} className="Tic-container">
         { final ? <Confetti
       width={width}
       height={height}
     /> : "" }
-      <h1>Tic Tac Toe</h1>
+      <h1 className="headd">Tic Tac Toe</h1>
       <div className="boxes">
       {values.map((one,index)=>( <Box ValueX={one} key={index} onBoxClick={()=> HandClick(index)
       }/> ))}
@@ -83,6 +88,7 @@ const winner = (values)=>{
 
     </div>
     </ThemeProvider>
+    </Paper>
   );
 }
 

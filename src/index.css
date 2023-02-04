@@ -7,7 +7,7 @@ body{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px ,1fr));
   justify-items: center;
-  gap: 40px;
+  gap: 50px;
   padding-top: 50px;
 }
 
@@ -44,6 +44,10 @@ body{
   margin-top: 0;
 }
 
+.MuiTouchRipple-root {
+  margin-left: auto;
+}
+
 .nut{
   margin-left: 10px;
 }
@@ -62,11 +66,12 @@ body{
 
 
 .content{
+  position: relative;
   padding: 0 20px;
 }
 
 .container{
-    width: 350px;
+    width: 375px;
     position: relative;
 }
 

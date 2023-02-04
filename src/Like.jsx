@@ -1,15 +1,14 @@
 import { useState } from "react";
-import Button from "@mui/material/Button";
 import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
 import Badge from '@mui/material/Badge';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import Paper from '@mui/material/Paper';
 
-export function Like() {
+export function Like({but,edit}) {
   const [like, setLike] = useState(0);
   const [disLike, setDisLike] = useState(0);
+
+
   return (
     <div className="likeButton">
 
@@ -24,6 +23,10 @@ export function Like() {
           <ThumbDownIcon color="error" />
           </Badge>
           </IconButton>
+
+          {edit}
+               
+          {but}
 
     </div>
   );
