@@ -49,11 +49,12 @@ export function MovieCreate() {
             rating={movie.rating}
             summary={movie.summary}
             editButton={
-              <IconButton 
-              sx={{marginLeft:"auto"}}
-              color="primary" 
-              onClick={() => navigate("/edit-movie")}>
-                <EditIcon />
+              <IconButton >
+                <EditIcon 
+                sx={{marginLeft:"auto"}}
+                color="primary" 
+                onClick={() => navigate(`/edit-movie/${movie.id}`)}
+                />
               </IconButton>
             }
             deleteButton={

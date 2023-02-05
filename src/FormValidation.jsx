@@ -38,6 +38,7 @@ export function FormValidation() {
         name="email"
         id="filled-basic" 
         label="Username/Email" 
+        type="text"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.email} variant="filled" 
@@ -48,6 +49,7 @@ export function FormValidation() {
         name="password"
         id="filled-basic" 
         label="Password" 
+        type="password"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.password}  variant="filled" />

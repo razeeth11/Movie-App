@@ -25,9 +25,9 @@ body{
 }
 
 .absolute{
-  position: absolute;
-  right: 0px;
-  /* margin-left: auto; */
+  /* position: absolute;
+  right: 0px; */
+  margin-left: auto;
 }
 
 .flex{

@@ -2,8 +2,18 @@
   margin: 10px auto !important;
 }
 
+.back{
+  width: 30px !important;
+}
+
 .movie-detail{
   padding: 10px;
+}
+
+.loading-page{
+  margin: 150px auto;
+  display: block;
+  width: 250px;
 }
 
 .main{

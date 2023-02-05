@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Color } from "./Color";
 import "./index.css";
-import "./index1.css";
 import "./Color.css";
 import "./App.css";
 import "./TicTac.css";
@@ -239,14 +238,14 @@ export default function App() {
 
               <div className="absolute">
                 <Button
-                  variant="contained"
+                  variant="inherit"
                   color="primary"
                   onClick={() => {
                     setMode(mode === "light" ? "dark" : "light");
                   }}
                 >
                   {mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
-                  {mode === "light" ? "Dark" : "Light"}
+                  {/* {mode === "light" ? "Dark" : "Light"} */}
                 </Button>
               </div>
             </div>
@@ -260,7 +259,7 @@ export default function App() {
           <Route path="/movies/:id" element={<MovieDetails />} />
           <Route path="/tic-tac-toe" element={<TicTacToe />} />
           <Route path="/Add-movie" element={<AddMovie />} />
-          <Route path="/edit-movie" element={<EditMovie />} />
+          <Route path="/edit-movie/:id" element={<EditMovie />} />
           <Route path="/form" element={<FormValidation />} />
           <Route
             path="/game"

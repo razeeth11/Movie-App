@@ -2,35 +2,29 @@ import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
-import { Navigate, useNavigate } from "react-router-dom";
+import * as yup from "yup";  
+import { useFormik } from 'formik';
+import { useNavigate } from "react-router-dom";
+import { Call } from "@mui/icons-material";
 
 export function AddMovie() {
-  const [Name, movieName] = useState(""); 
-  const [Poster, moviePoster] = useState("");
-  const [Rating, movieRating] = useState("");
-  const [Summary, movieSummary] = useState("");
-  const [Trailer, movieTrailer] = useState("");
   const navigate = useNavigate();
+
+  const addMovieValidate = yup.object({
+    name: yup.string().required(),
+    poster: yup.string().required().url(),
+    rating: yup.number().required().max(10),
+    summary: yup.string().required(),
+    trailer: yup.string().required().url(),
+ })
 
   const radius = {
     borderRadius: "0px",
     minHeight: "100vh"
   };
   
-  const click = async () => {
-    const newMovie = {
-      name: Name,
-      poster: Poster,
-      rating: Rating,
-      summary: Summary,
-      trailer: Trailer,
-    };
-    if (
-      newMovie.name != "" &&
-      newMovie.poster != "" &&
-      newMovie.rating != "" &&
-      newMovie.summary != ""
-    ) {
+  const click = async (newMovie) => {
+
        await fetch("https://63db75e9a3ac95cec5a22b2d.mockapi.io/nutflix",{
           method : "POST",
           body: JSON.stringify(newMovie),
@@ -40,59 +34,106 @@ export function AddMovie() {
       
     },[]);
     navigate("/movies")
-  };
 }
+
+const formik = useFormik({
+  initialValues: { 
+    name: "",
+    poster: "",
+    rating: "",
+    summary: "",
+    trailer: "",
+  },
+  validationSchema: addMovieValidate,
+  onSubmit: (values)=> click(values) ,
+})
 
   return (
     <Paper sx={radius} elevation={10}>
       <div className="main">
+        <form onSubmit={formik.handleSubmit}>
           <div className="contain">
             <h2>Add Movie Here</h2>
+
             <TextField
+              name="name"
               className="input"
               type="text"
               label="Movie Name"
               variant="filled"
-              onChange={(ev) => movieName(ev.target.value)}
-            />
+              error={formik.errors.name && formik.touched.name  }
+              helperText={formik.errors.name && formik.touched.name ? formik.errors.name : null}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+            /> 
+
             <TextField
+              name="poster"
               className="input"
               type="text"
               label="Poster"
               variant="filled"
-              onChange={(ev) => moviePoster(ev.target.value)}
+              error={formik.errors.poster && formik.touched.poster }
+              helperText={formik.errors.poster && formik.touched.poster ? formik.errors.poster : null}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
             />
+
             <TextField
+              name="rating"
               className="input"
               type="text"
               label="Rating"
               variant="filled"
-              onChange={(ev) => movieRating(ev.target.value)}
+              error={formik.errors.rating && formik.touched.rating }
+              helperText={formik.errors.rating && formik.touched.rating ? formik.errors.rating : null}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
             />
+
             <TextField
+              name="summary"
               className="input"
               type="text"
               label="Summary"
               variant="filled"
-              onChange={(ev) => movieSummary(ev.target.value)}
+              error={formik.errors.summary && formik.touched.summary  }
+              helperText={formik.errors.summary && formik.touched.summary ? formik.errors.summary : null}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
             />
+
             <TextField
+              name="trailer"
               className="input"
               type="text"
               label="Trailer"
               variant="filled"
-              onChange={(ev) => movieTrailer(ev.target.value)}
+              error={formik.errors.trailer && formik.touched.trailer  }
+              helperText={formik.errors.trailer && formik.touched.trailer ? formik.errors.trailer : null}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
             />
-            <Button
-              onClick={click}
+            
+            { formik.values.name != "" &&
+              formik.values.poster != "" &&
+              formik.values.summary != "" &&
+              formik.values.rating != "" && 
+              formik.values.trailer != "" ? <Button
+              type="submit"
               className="add-Button"
               variant="contained"
             >
               Add Movie
-            </Button>
+            </Button> : <Button variant="contained" color="primary" disabled>Enter the details to enable button</Button> }
           </div>
+          </form>
       </div>
     </Paper>
   );
   
 }
+
+
+  
+
