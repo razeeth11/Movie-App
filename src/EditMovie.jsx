@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import * as yup from "yup";  
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 
  export function EditMovie(){
@@ -69,7 +70,9 @@ export function EditMovieForm({Mov}) {
       <Paper sx={radius} elevation={10}>
       <form onSubmit={formik.handleSubmit}>
       <div className='edit-movie'>
-        <h1>Edit Movie</h1>
+        <h1> <Button 
+        onClick={() => navigate(-1)}
+        variant='contained' className='back-but'><KeyboardBackspaceIcon/></Button>Edit Movie</h1>
         <TextField className='input' 
         name="name"
         id="filled-basic" 
