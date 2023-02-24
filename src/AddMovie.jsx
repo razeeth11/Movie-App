@@ -26,7 +26,7 @@ export function AddMovie() {
 
   const click = async (newMovie) => {
     await fetch(
-      `${API}`,
+      `${API}/movies`,
       {
         method: "POST",
         body: JSON.stringify(newMovie),
