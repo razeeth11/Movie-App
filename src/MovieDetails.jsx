@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { API } from './api';
 
 export function MovieDetails() {
   const [movie,setMovieDetails] = useState([])
@@ -9,7 +10,7 @@ export function MovieDetails() {
   const navigate = useNavigate();
 
 useEffect( ()=>{
-   fetch(`https://63db75e9a3ac95cec5a22b2d.mockapi.io/nutflix/${id}`)
+   fetch(`${API}/movies/${id}`)
   .then((res)=> res.json())
   .then((data)=> setMovieDetails(data))
 },[])

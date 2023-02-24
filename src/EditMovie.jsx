@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import { API } from './api';
 
 
  export function EditMovie(){
@@ -15,7 +16,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
   
     useEffect(()=>{
-     fetch(`https://63db75e9a3ac95cec5a22b2d.mockapi.io/nutflix/${id}`)
+     fetch(`${API}/movies/${id}`)
     .then((res)=>res.json())
     .then((data)=> editMove(data))
   },[])
@@ -41,7 +42,7 @@ export function EditMovieForm({Mov}) {
   };
 
   const edit = async(values)=>{
-    await fetch(`https://63db75e9a3ac95cec5a22b2d.mockapi.io/nutflix/${id}` , {
+    await fetch(`${API}/movies/${id}` , {
     method : "PUT",
     body: JSON.stringify(values),
       headers: {

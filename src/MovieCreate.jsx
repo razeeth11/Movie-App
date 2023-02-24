@@ -9,32 +9,32 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Card from "@mui/material/Card";
 import InfoIcon from "@mui/icons-material/Info";
 import { useNavigate } from "react-router-dom";
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from "@mui/icons-material/Edit";
 import { IconButton } from "@mui/material";
+import { API } from './api';
 
 export function MovieCreate() {
   const [Movie, setMovieCreate] = useState([]);
   const navigate = useNavigate();
   const reCall = () => {
-    fetch("https://63db75e9a3ac95cec5a22b2d.mockapi.io/nutflix")
+    fetch(`${API}/movies`)
       .then((res) => res.json())
-      .then((data) => setMovieCreate(data));
+      .then((data) => setMovieCreate(data)
+      ,[]);
   };
 
   const radius = {
     borderRadius: "0px",
   };
 
-
   useEffect(() => {
     reCall();
   },[]);
 
   const call = (id) => {
-    fetch(`https://63db75e9a3ac95cec5a22b2d.mockapi.io/nutflix/${id}`, {
+    fetch(`${API}/movies/${id}`, {
       method: "DELETE",
-    })
-    .then(()=>reCall());
+    }).then(() => reCall());
   };
 
   return (
@@ -49,19 +49,20 @@ export function MovieCreate() {
             rating={movie.rating}
             summary={movie.summary}
             editButton={
-              <IconButton >
-                <EditIcon 
-                sx={{marginLeft:"auto"}}
-                color="primary" 
-                onClick={() => navigate(`/edit-movie/${movie.id}`)}
+              <IconButton>
+                <EditIcon
+                  sx={{ marginLeft: "auto" }}
+                  color="primary"
+                  onClick={() => navigate(`/edit-movie/${movie.id}`)}
                 />
               </IconButton>
             }
             deleteButton={
-              <IconButton 
-              sx={{marginLeft:"auto"}}
-              color="error" 
-              onClick={() => call(movie.id)}>
+              <IconButton
+                sx={{ marginLeft: "auto" }}
+                color="error"
+                onClick={() => call(movie.id)}
+              >
                 <DeleteIcon />
               </IconButton>
             }
@@ -72,8 +73,15 @@ export function MovieCreate() {
   );
 }
 
-function MoviesCollection({id ,name , poster , rating , summary , deleteButton , editButton}) {
-
+function MoviesCollection({
+  id,
+  name,
+  poster,
+  rating,
+  summary,
+  deleteButton,
+  editButton,
+}) {
   const [show, setShow] = useState(true);
   const style = {
     display: show ? "block" : "none",
@@ -81,18 +89,18 @@ function MoviesCollection({id ,name , poster , rating , summary , deleteButton ,
 
   const navigate = useNavigate();
 
-  const [Movies,MoviesList] = useState([])
-  
+  const [Movies, MoviesList] = useState([]);
+
   const styles = {
     color: rating > 8 ? "green" : "red",
     fontWeight: 700,
   };
 
-  useEffect(()=>{
-    fetch("https://63db75e9a3ac95cec5a22b2d.mockapi.io/nutflix")
-    .then((res)=>res.json())
-    .then((data)=>MoviesList(data))
-  },[]) 
+  useEffect(() => {
+    fetch(`${API}`)
+      .then((res) => res.json())
+      .then((data) => MoviesList(data));
+  }, []);
 
   return (
     <Card className="container">
@@ -120,7 +128,7 @@ function MoviesCollection({id ,name , poster , rating , summary , deleteButton ,
         <p className="movie-sum" style={style}>
           {summary}
         </p>
-        <Like  but={deleteButton} edit={editButton} /> 
+        <Like but={deleteButton} edit={editButton} />
       </div>
     </Card>
   );

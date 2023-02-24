@@ -17,6 +17,7 @@ import { MovieCreate } from "./MovieCreate";
 import { AddMovie } from "./AddMovie";
 import { FormValidation } from "./FormValidation";
 import { EditMovie } from "./EditMovie";
+import { API } from "./api";
 
 // const val = [
 //     {
@@ -171,7 +172,7 @@ export default function App() {
   });
 
   useEffect(() => {
-    fetch("https://63db75e9a3ac95cec5a22b2d.mockapi.io/nutflix")
+    fetch(`${API}/movies`)
       .then((res) => res.json())
       .then((data) => setMovieList(data));
   }, []);
