@@ -16,7 +16,7 @@ import { API } from './api';
 
   
     useEffect(()=>{
-     fetch(`${API}/movies/${id}`)
+     fetch(`${API}/${id}`)
     .then((res)=>res.json())
     .then((data)=> editMove(data))
   },[])
@@ -42,7 +42,7 @@ export function EditMovieForm({Mov}) {
   };
 
   const edit = async(values)=>{
-    await fetch(`${API}/movies/${id}` , {
+    await fetch(`${API}/${id}` , {
     method : "PUT",
     body: JSON.stringify(values),
       headers: {

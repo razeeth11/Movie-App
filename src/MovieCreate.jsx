@@ -17,7 +17,7 @@ export function MovieCreate() {
   const [Movie, setMovieCreate] = useState([]);
   const navigate = useNavigate();
   const reCall = () => {
-    fetch(`${API}/movies`)
+    fetch(`${API}`)
       .then((res) => res.json())
       .then((data) => setMovieCreate(data)
       ,[]);
@@ -32,7 +32,7 @@ export function MovieCreate() {
   },[]);
 
   const call = (id) => {
-    fetch(`${API}/movies/${id}`, {
+    fetch(`${API}/${id}`, {
       method: "DELETE",
     }).then(() => reCall());
   };

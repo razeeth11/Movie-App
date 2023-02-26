@@ -10,7 +10,7 @@ export function MovieDetails() {
   const navigate = useNavigate();
 
 useEffect( ()=>{
-   fetch(`${API}/movies/${id}`)
+   fetch(`${API}/${id}`)
   .then((res)=> res.json())
   .then((data)=> setMovieDetails(data))
 },[])
