@@ -53,7 +53,7 @@ const winner = (values)=>{
 }
 
  const final = winner(values)
- const p = {
+ const stylee = {
   color: final === "X" ? "red" : "green",
  }
  const radius = {
@@ -74,7 +74,7 @@ const winner = (values)=>{
       }/> ))}
       </div>
 
-      { final ? <p>The Winner is : <span style={p}>{final}</span></p> : "" } 
+      { final ? <p>The Winner is : <span style={stylee}>{final}</span></p> : "" } 
       
       {final ? <Button className="extra" variant="contained" onClick={
         ()=> setValues(Array(9).fill(""),

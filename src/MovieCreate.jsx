@@ -77,7 +77,7 @@ function MoviesCollection({
   id,
   name,
   poster,
-  rating,
+  rating, 
   summary,
   deleteButton,
   editButton,
