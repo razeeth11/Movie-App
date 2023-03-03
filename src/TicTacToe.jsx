@@ -2,7 +2,7 @@ import "./TicTac.css"
 import { useState } from "react";
 import React from 'react'
 import Confetti from 'react-confetti'
-import Stack from '@mui/material/Stack';
+import Stack from '@mui/material/Stack';  
 import Paper from "@mui/material/Paper";
 import Button from '@mui/material/Button';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -92,7 +92,7 @@ const winner = (values)=>{
   );
 }
 
-function Box({ValueX,onBoxClick}){
+function Box({ValueX,onBoxClick}){  
   const style = {
     color: ValueX === "X" ? "red" : "green",
   }

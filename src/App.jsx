@@ -143,10 +143,15 @@ import { API } from "./api";
 // ]
 
 function NotFound() {
+  const navigate = useNavigate();
   return (
     <div className="not-found">
+      <Button  variant="contained"
+               onClick={() => {
+                     navigate("/");
+                  }} >Back To Home</Button>
       <img
-        src="https://freefrontend.com/assets/img/html-funny-404-pages/CodePen-404-Page.gif"
+        src="./src/pngaaa.com-4333947.png"  
         alt="404-Not-Found"
       />
     </div>
@@ -162,7 +167,7 @@ function Home() {
 }
 
 export default function App() {
-  const [Show, ShowContent] = useState(false);
+  const [Show, ShowContent] = useState(false); 
   const [movies, setMovieList] = useState([]);
   const [mode, setMode] = useState("dark");
   const darkTheme = createTheme({

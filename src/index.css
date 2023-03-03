@@ -127,10 +127,15 @@ Button{
   padding: 0 !important;
 }
 
-
 .not-found{
   text-align: center;
-  margin: auto;
+  margin:20px auto;
+}
+
+.not-found img{
+  width: 650px;
+  margin: 20px auto;
+  display: block;
 }
 
 .details-icon{
