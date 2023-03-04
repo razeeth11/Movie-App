@@ -19,7 +19,7 @@ import { FormValidation } from "./FormValidation";
 import { EditMovie } from "./EditMovie";
 import { API } from "./api";
 
-// const val = [
+// const val =  [
 //     {
 //         "id": "1",
 //         "name": "The Godfather",

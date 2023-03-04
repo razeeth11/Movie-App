@@ -31,10 +31,11 @@ export function MovieCreate() {
     reCall();
   },[]);
 
-  const call = (id) => {
-    fetch(`${API}/${id}`, {
+  const call = async (id) => {
+    await fetch(`${API}/${id}`, {
       method: "DELETE",
-    }).then(() => reCall());
+    });
+    reCall();
   };
 
   return (
