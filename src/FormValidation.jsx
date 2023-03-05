@@ -1,4 +1,8 @@
+import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useState } from 'react';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Paper from "@mui/material/Paper";
 import "./MovieEdit.css"
 import { useFormik } from 'formik';
@@ -6,11 +10,17 @@ import Button from '@mui/material/Button';
 import * as yup from "yup";   
 
 const formValidationSchema =yup.object({
-  email: yup.string().required().min(5).max(8,"try something"),
-  password: yup.string().required().min(5).max(8,"Too Much Password")
+  email: yup.string().email().required(),
+  password: yup.string().required().min(5,"Min 5 characters needed").max(8,"Max reached ")
 })
 
 export function FormValidation() {
+
+  const [hide,setHide] = useState(true)
+   
+  const style={
+    type : hide ? "password" : "text"
+  }
 
   const radius = {
     borderRadius: "0px",
@@ -42,19 +52,28 @@ export function FormValidation() {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.email} variant="filled" 
-        />
-        {formik.errors.email && formik.touched.email ? formik.errors.email : null} 
+        error={formik.touched.email && formik.errors.email}
+        helperText={formik.touched.email && formik.errors.email ? formik.errors.email : null}
+        /> 
 
         <TextField className='input' 
         name="password"
         id="filled-basic" 
         label="Password" 
-        type="password"
+        type={style.type}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end" className='hide' onClick={()=> setHide(!hide) }>
+              { hide ? <VisibilityIcon/> : <VisibilityOffIcon/>}
+            </InputAdornment>
+          ),
+        }}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        value={formik.values.password}  variant="filled" />
-        {formik.errors.password && formik.touched.password ? formik.errors.password : null}
-
+        value={formik.values.password}  variant="filled" 
+        error={formik.touched.password && formik.errors.password}
+        helperText={formik.touched.password && formik.errors.password ? formik.errors.password : null}
+        />
   
         <Button 
         variant="contained"
